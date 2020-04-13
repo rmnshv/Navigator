@@ -58,10 +58,7 @@
             android:id="@+id/llPrompt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:background="@color/colorPrimary">
+            android:layout_marginTop="80dp">
 
             <ImageView
                 android:id="@+id/ivPrompt2"
@@ -70,7 +67,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 android:contentDescription="@string/cdPrompt2"
-                android:tint="@color/white"
+                android:tint="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -84,7 +81,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/prompt_msg_2"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
