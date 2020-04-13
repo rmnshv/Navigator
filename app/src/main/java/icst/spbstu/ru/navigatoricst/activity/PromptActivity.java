@@ -60,7 +60,7 @@ public class PromptActivity extends BaseActivity {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         ivPrompt.setVisibility(View.VISIBLE);
-                        // TODO invoke question activity
+                        // TODO invoke testing activity
                     }
 
                     @Override
