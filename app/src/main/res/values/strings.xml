@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">Навигатор ИКНТ</string>
+    <string name="icst_site">Сайт ИКНТ</string>
+    <string name="edu_title">Направления подготовки</string>
+    <string name="testing">Тестирование</string>
+
+    <!-- navigationDrawer titles -->
+    <string name="about">О приложении</string>
+    <string name="last_res">Последний результат</string>
+    <string name="rate">Оценить приложение</string>
+    <string name="share">Поделиться</string>
+    <string name="exit">Выход</string>
+    <string name="support">Служба поддержки</string>
+    <string name="info_about">О направлениях</string>
+
+    <!-- messages -->
+    <string name="no_data">Нет данных</string>
+    <string name="tap_again">Для выхода нажмите "назад" еще раз</string>
+    <string name="share_msg">Узнай, кто ты в мире IT! </string>
+    <string name="hello">Здравствуйте!</string>
+    <string name="hi">Привет!</string>
+    <string name="send">Отправить</string>
+    <string name="support_type_prompt">Выберите тип обращения</string>
+    <string name="support_hint">Введите текст</string>
+    <string name="no_email_client">Нет email клиента</string>
+    <string name="start_test">Начать тест</string>
+
+    <!-- main message -->
+    <string name="main_msg">Это приложение поможет тебе разобраться в огромном разнообразии IT сфер и подобрать для себя
+        подходящее направление в ИКНТ СПбПУ.</string>
+
+    <!-- links -->
+    <string name="icst_edu_url">https://icst.spbstu.ru/edu/</string>
+    <string name="icst_url">https://icst.spbstu.ru/</string>
+    <string name="support_mail_address">tonnyjohnson41@gmail.com</string>
+
+    <!-- about_app -->
+    <string name="about_info">Это приложение было разработано студентами 2 курса СПбПУ ИКНТ в 2020 году.
+    Его цель - облегчить процесс выбора направления в СПбПУ ИКНТ. Надеемся, что нам удалось достичь эту цель.</string>
+
+    <!-- support_info -->
+    <string name="support_info">Мы будем рады услышать любые предложения по улучшению или получить
+    от Вас отзыв о приложении. Чем подробнее, тем лучше.</string>
+
+    <!-- content description -->
+    <string name="cdSupportLogo">SupportLogo</string>
+    <string name="cdMainLogo">MainLogo</string>
+
+    <string name="default_text">Средний</string>
+
+
+    <!-- string-array for Support Types -->
+    <string-array name="support_types">
+        <item>Вопрос</item>
+        <item>Отзыв</item>
+        <item>Предложение</item>
+    </string-array>
+
+</resources>

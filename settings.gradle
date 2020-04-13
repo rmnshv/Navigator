@@ -1,0 +1,2 @@
+rootProject.name='Navigator ICST'
+include ':app'
