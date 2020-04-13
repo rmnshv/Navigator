@@ -25,6 +25,11 @@
     <string name="no_email_client">Нет email клиента</string>
     <string name="start_test">Начать тест</string>
 
+    <!-- prompt messages -->
+    <string name="prompt_msg_1">Тест займет менее 10 минут</string>
+    <string name="prompt_msg_2">Если ты не в настроении, лучше ненадолго отложи тест</string>
+    <string name="prompt_msg_3">Сходи в домик, а мы пока придумаем текст</string>
+
     <!-- main message -->
     <string name="main_msg">Это приложение поможет тебе разобраться в огромном разнообразии IT сфер и подобрать для себя
         подходящее направление в ИКНТ СПбПУ.</string>
@@ -45,6 +50,9 @@
     <!-- content description -->
     <string name="cdSupportLogo">SupportLogo</string>
     <string name="cdMainLogo">MainLogo</string>
+    <string name="cdPrompt1">Prompt1</string>
+    <string name="cdPrompt2">Prompt2</string>
+    <string name="cdPrompt3">Prompt3</string>
 
     <string name="default_text">Средний</string>
 

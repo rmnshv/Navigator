@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import icst.spbstu.ru.navigatoricst.R;
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
@@ -17,9 +18,9 @@ import icst.spbstu.ru.navigatoricst.utilities.ActivityUtilities;
 
 public class PromptActivity extends BaseActivity {
 
-    private ImageView ivPrompt;
-    private ConstraintLayout layout;
-    private Animation animation;
+    private ConstraintLayout promptLayout;
+    private LinearLayout llPrompt1, llPrompt2, llPrompt3;
+    private Animation anim1, anim2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,18 @@ public class PromptActivity extends BaseActivity {
         setToolbarTitle(getString(R.string.testing));
         enableUpButton();
 
-        layout = (ConstraintLayout)findViewById(R.id.promptLayout);
-        ivPrompt = (ImageView)findViewById(R.id.ivPrompt);
-        ivPrompt.setVisibility(View.INVISIBLE);
-        animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.alpha);
+        promptLayout = (ConstraintLayout)findViewById(R.id.promptLayout);
+
+        llPrompt1 = (LinearLayout) findViewById(R.id.llPrompt1);
+        llPrompt2 = (LinearLayout) findViewById(R.id.llPrompt2);
+        llPrompt3 = (LinearLayout) findViewById(R.id.llPrompt3);
+
+        llPrompt1.setVisibility(View.INVISIBLE);
+        llPrompt2.setVisibility(View.INVISIBLE);
+        llPrompt3.setVisibility(View.INVISIBLE);
+
+        anim1 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.prompt_anim_1);
+        anim2 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.prompt_anim_2);
     }
 
     @Override
@@ -47,11 +56,13 @@ public class PromptActivity extends BaseActivity {
     }
 
     private void initFunctionality(){
-        layout.postDelayed(new Runnable() {
+        promptLayout.postDelayed(new Runnable() {
             @Override
             public void run() {
-                ivPrompt.startAnimation(animation);
-                animation.setAnimationListener(new Animation.AnimationListener() {
+                llPrompt1.startAnimation(anim1);
+                llPrompt2.startAnimation(anim2);
+                llPrompt3.startAnimation(anim1);
+                Animation.AnimationListener animationListener = new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
 
@@ -59,7 +70,9 @@ public class PromptActivity extends BaseActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        ivPrompt.setVisibility(View.VISIBLE);
+                        llPrompt1.setVisibility(View.VISIBLE);
+                        llPrompt2.setVisibility(View.VISIBLE);
+                        llPrompt3.setVisibility(View.VISIBLE);
                         // TODO invoke testing activity
                     }
 
@@ -67,7 +80,9 @@ public class PromptActivity extends BaseActivity {
                     public void onAnimationRepeat(Animation animation) {
 
                     }
-                });
+                };
+                anim1.setAnimationListener(animationListener);
+                anim2.setAnimationListener(animationListener);
             }
         }, AppConstants.SPLASH_DURATION);
     }

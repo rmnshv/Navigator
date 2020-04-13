@@ -2,8 +2,8 @@ package icst.spbstu.ru.navigatoricst.constants;
 
 public class AppConstants {
 
-    public static final int SPLASH_DURATION = 2000;
-    public static final int PROMPT_DURATION = 2000;
+    public static final int SPLASH_DURATION = 1500;
+    public static final int PROMPT_DURATION = 1500;
 
 
     public static final int BUNDLE_KEY_ZERO_INDEX = 0;
