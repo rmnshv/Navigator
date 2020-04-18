@@ -6,6 +6,8 @@ public class AppConstants {
     public static final int PROMPT_DURATION = 1500;
 
 
+    public static final int DIRECTIONS_COUNT = 8;
+
     public static final int BUNDLE_KEY_ZERO_INDEX = 0;
     public static final int BUNDLE_KEY_FIRST_INDEX = 1;
     public static final int BUNDLE_KEY_SECOND_INDEX = 2;
@@ -21,6 +23,7 @@ public class AppConstants {
     public static final long SITE_CASHE_SIZE = 10 * 1024 * 1024;
 
     // notification constants
+    public static final String APP_PREF_NAME = "nav_app_pref";
     public static final String PREF_NOTIFICATION = "pref_notification";
     public static final String PREF_FONT_SIZE = "pref_font_size";
     public static final String NEW_NOTI = "new_notification";
@@ -46,15 +49,16 @@ public class AppConstants {
     public static final String QUESTION_FILE = "json/question_set.json";
     public static final String JSON_KEY_QUESTIONNAIRY = "questionnaires";
     public static final String JSON_KEY_QUESTION = "question";
-    public static final String JSON_KEY_CORRECT_ANS = "correct_answer";
     public static final String JSON_KEY_ANSWERS = "answers";
+    public static final String JSON_KEY_SCORES = "scores";
+    public static final String JSON_KEY_SCORE_SET = "score_set";
     public static final String QUESTIONS_IN_TEST = "questions_count";
 
 
-    public static final String APP_PREF_NAME = "nav_app_pref";
 
     // pie chart constants
     public static final float TRANSPARENT_CIRCLE_RADIUS = 65f;
     public static final int ANIMATION_VALUE = 2000;
 
+    public static final String COLOR_WHITE = "rectangle_white_normal";
 }

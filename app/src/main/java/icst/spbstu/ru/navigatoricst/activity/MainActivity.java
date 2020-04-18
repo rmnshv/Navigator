@@ -147,12 +147,11 @@ public class MainActivity extends BaseActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityUtilities.getInstance().invokeNewActivity(activity, PromptActivity.class, false);
+                ActivityUtilities.getInstance().invokeNewActivity(activity, PromptActivity.class, true);
             }
         });
 
     }
-
 
 
     @Override

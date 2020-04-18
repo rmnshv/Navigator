@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,15 +13,20 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import java.util.concurrent.TimeUnit;
+
 import icst.spbstu.ru.navigatoricst.R;
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
 import icst.spbstu.ru.navigatoricst.utilities.ActivityUtilities;
+import icst.spbstu.ru.navigatoricst.utilities.AppUtilities;
 
 public class PromptActivity extends BaseActivity {
 
     private ConstraintLayout promptLayout;
     private LinearLayout llPrompt1, llPrompt2, llPrompt3;
     private Animation anim1, anim2;
+
+    private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,8 @@ public class PromptActivity extends BaseActivity {
         initToolbar(true);
         setToolbarTitle(getString(R.string.testing));
         enableUpButton();
+
+        activity = PromptActivity.this;
 
         promptLayout = (ConstraintLayout)findViewById(R.id.promptLayout);
 
@@ -47,10 +55,10 @@ public class PromptActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                finish();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            ActivityUtilities.getInstance().invokeNewActivity(activity, MainActivity.class, true);
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -73,7 +81,12 @@ public class PromptActivity extends BaseActivity {
                         llPrompt1.setVisibility(View.VISIBLE);
                         llPrompt2.setVisibility(View.VISIBLE);
                         llPrompt3.setVisibility(View.VISIBLE);
-                        // TODO invoke testing activity
+                        try {
+                            TimeUnit.SECONDS.sleep(1);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        ActivityUtilities.getInstance().invokeNewActivity(activity, TestingActivity.class, true);
                     }
 
                     @Override
@@ -84,12 +97,17 @@ public class PromptActivity extends BaseActivity {
                 anim1.setAnimationListener(animationListener);
                 anim2.setAnimationListener(animationListener);
             }
-        }, AppConstants.SPLASH_DURATION);
+        }, AppConstants.PROMPT_DURATION);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         initFunctionality();
+    }
+
+    @Override
+    public void onBackPressed() {
+        ActivityUtilities.getInstance().invokeNewActivity(activity, MainActivity.class, true);
     }
 }
