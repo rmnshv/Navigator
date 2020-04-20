@@ -12,47 +12,99 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTesting"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTop"
-        android:paddingBottom="15dp"
-        android:paddingEnd="15dp"
-        android:paddingStart="15dp"
-        android:paddingTop="10dp">
+        app:layout_constraintTop_toBottomOf="@id/toolbarTop">
 
-        <TextView
-            android:id="@+id/tvQuestionTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:lineSpacingMultiplier="1.1"
-            android:textSize="17sp"
-            tools:text="@string/test_question_title" />
+        <ImageView
+            android:id="@+id/ivTestBg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_green" />
+
+        <ImageView
+            android:id="@+id/ivRect"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:alpha="0.8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/badge_rect" />
 
         <TextView
             android:id="@+id/tvQuestionText"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvQuestionTitle"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_margin="20dp"
+            android:gravity="center"
             android:lineSpacingMultiplier="1.1"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivRect"
+            app:layout_constraintEnd_toEndOf="@+id/ivRect"
+            app:layout_constraintStart_toStartOf="@+id/ivRect"
+            app:layout_constraintTop_toTopOf="@+id/ivRect"
             tools:text="@string/testing" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingStart="15dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvQuestionTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clTesting">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTest"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/tvQuestionText"/>
+            android:layout_below="@id/tvQuestionText" />
 
-        <include layout="@layout/view_loader"/>
+        <include layout="@layout/view_loader" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvQuestionTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.1"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/pbTestingProgress"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarTop"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/test_question_title" />
+
+    <ProgressBar
+        android:id="@+id/pbTestingProgress"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

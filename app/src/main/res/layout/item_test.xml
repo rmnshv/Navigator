@@ -17,7 +17,7 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="15sp"
-            tools:text="Тестирование" />
+            tools:text="Тестирование"/>
 
 
 </androidx.cardview.widget.CardView>

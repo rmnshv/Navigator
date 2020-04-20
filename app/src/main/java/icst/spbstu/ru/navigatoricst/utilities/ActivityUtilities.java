@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
+import java.util.ArrayList;
+
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
 
 public class ActivityUtilities {
@@ -34,6 +36,16 @@ public class ActivityUtilities {
         activity.startActivity(intent);
 
         if (shouldFinish){
+            activity.finish();
+        }
+    }
+
+    public void invokeScoreCardActivity(Activity activity, Class<?> tClass, ArrayList<Integer> mDirectionsScores,
+                                        boolean shouldFinish) {
+        Intent intent = new Intent(activity, tClass);
+        intent.putExtra(AppConstants.BUNDLE_KEY_DIRECTIONS_SCORES, mDirectionsScores);
+        activity.startActivity(intent);
+        if (shouldFinish) {
             activity.finish();
         }
     }

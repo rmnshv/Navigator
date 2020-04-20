@@ -1,9 +1,10 @@
 <resources>
 
-    <string name="app_name">IT-навигатор</string>
+    <string name="app_name">abilITy</string>
     <string name="icst_site">Сайт ИКНТ</string>
     <string name="edu_title">Направления подготовки</string>
     <string name="testing">Тестирование</string>
+    <string name="result">Результат</string>
 
     <!-- navigationDrawer titles -->
     <string name="about">О приложении</string>

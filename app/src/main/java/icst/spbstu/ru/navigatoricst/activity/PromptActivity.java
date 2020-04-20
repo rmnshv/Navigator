@@ -95,7 +95,6 @@ public class PromptActivity extends BaseActivity {
                     }
                 };
                 anim1.setAnimationListener(animationListener);
-                anim2.setAnimationListener(animationListener);
             }
         }, AppConstants.PROMPT_DURATION);
     }

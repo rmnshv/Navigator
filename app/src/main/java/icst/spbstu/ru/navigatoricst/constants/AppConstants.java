@@ -7,6 +7,7 @@ public class AppConstants {
 
 
     public static final int DIRECTIONS_COUNT = 8;
+    public static final int INFO_DIRECTIONS_COUNT = 4; // количество направлений в результатах
 
     public static final int BUNDLE_KEY_ZERO_INDEX = 0;
     public static final int BUNDLE_KEY_FIRST_INDEX = 1;
@@ -33,8 +34,6 @@ public class AppConstants {
 
     // question constants
     public static final String BUNDLE_KEY_SCORE = "score";
-    public static final String BUNDLE_KEY_WRONG_ANS = "wrong_ans";
-    public static final String BUNDLE_KEY_SKIP = "skip";
     public static final String BUNDLE_KEY_YES = "yes";
     public static final String BUNDLE_KEY_NO = "no";
     public static final String BUNDLE_KEY_VIEW_ID = "view_id_tex";
@@ -43,7 +42,7 @@ public class AppConstants {
     public static final String BUNDLE_KEY_CLOSE_OPTION = "close";
     public static final String BUNDLE_KEY_SKIP_OPTION = "skip";
     public static final String BUNDLE_KEY_REWARD_OPTION = "reward";
-
+    public static final String BUNDLE_KEY_DIRECTIONS_SCORES = "dir_scores";
 
     // question file
     public static final String QUESTION_FILE = "json/question_set.json";
@@ -54,6 +53,12 @@ public class AppConstants {
     public static final String JSON_KEY_SCORE_SET = "score_set";
     public static final String QUESTIONS_IN_TEST = "questions_count";
 
+    // info file
+    public static final String INFO_FILE = "json/it_info.json";
+    public static final String JSON_KEY_AREAS = "areas";
+    public static final String JSON_KEY_DIRECTIONS = "directions";
+    public static final String JSON_KEY_ID = "id";
+    public static final String JSON_KEY_NAME = "name";
 
 
     // pie chart constants

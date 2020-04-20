@@ -14,6 +14,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -44,6 +45,7 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
     private RecyclerView mRecyclerTest;
     private TextView tvQuestionText;
     private TextView tvQuestionTitle;
+    private ProgressBar pbTestingProgress;
 
     private TestingAdapter mAdapter = null;
 
@@ -52,12 +54,12 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
 
     private int mQuestionPosition = 0;
     private int mQuestionsCount = 0;
-    private String mQuestionText;
 
     private ArrayList<Integer> mDirectionsScores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("myLogs", "Testing: onCreate");
         super.onCreate(savedInstanceState);
 
         initVar();
@@ -84,6 +86,9 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
         tvQuestionText = (TextView) findViewById(R.id.tvQuestionText);
         tvQuestionTitle = (TextView) findViewById(R.id.tvQuestionTitle);
 
+        pbTestingProgress = (ProgressBar)findViewById(R.id.pbTestingProgress);
+        pbTestingProgress.setProgress(0);
+
         mRecyclerTest = (RecyclerView) findViewById(R.id.rvTest);
         mRecyclerTest.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,
                 false));
@@ -107,6 +112,7 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
         mAdapter.setItemClickListener(new ListItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
+                pbTestingProgress.incrementProgressBy(1);
                 updateDirectionsScores(mItemList.get(mQuestionPosition).getScores(position));
                 setNextQuestion();
             }
@@ -121,11 +127,12 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
     }
 
     public void setNextQuestion() {
-        if (mQuestionPosition < mItemList.size() - 1) {
+        if (mQuestionPosition < mQuestionsCount - 1) {
             mQuestionPosition++;
             updateQuestionsAndAnswers();
         }  else {
-            //TODO: invoke ScoreCardActivity
+            ActivityUtilities.getInstance().invokeScoreCardActivity(mActivity, ScoreCardActivity.class,
+                    mDirectionsScores, true);
         }
     }
 
@@ -136,7 +143,7 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
         mOptionList.addAll(mItemList.get(mQuestionPosition).getAnswers());
         mAdapter.notifyDataSetChanged();
 
-        mQuestionText = mItemList.get(mQuestionPosition).getQuestion();
+        String mQuestionText = mItemList.get(mQuestionPosition).getQuestion();
 
         tvQuestionText.setText(Html.fromHtml(mQuestionText));
         tvQuestionTitle.setText(getString(R.string.test_question_title,
@@ -184,8 +191,8 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
                 JSONArray jsonArrayAns = jsonObj.getJSONArray(AppConstants.JSON_KEY_ANSWERS);
                 ArrayList<String> contents = new ArrayList<>();
                 for (int j = 0; j < jsonArrayAns.length(); j++) {
-                    String item_title = jsonArrayAns.get(j).toString();
-                    contents.add(item_title);
+                    String itemTitle = jsonArrayAns.get(j).toString();
+                    contents.add(itemTitle);
                 }
 
                 JSONArray jsonArrayScores = jsonObj.getJSONArray(AppConstants.JSON_KEY_SCORES);
@@ -202,6 +209,7 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
             }
 
             mQuestionsCount = mItemList.size();
+            pbTestingProgress.setMax(mQuestionsCount);
             Collections.shuffle(mItemList);
 
             hideLoader();
@@ -252,6 +260,8 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
 
     @Override
     protected void onDestroy() {
+
+        Log.d("myLogs", "Testing: onDestroy");
         super.onDestroy();
     }
 }
