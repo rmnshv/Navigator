@@ -7,7 +7,7 @@ public class AppConstants {
 
 
     public static final int DIRECTIONS_COUNT = 8;
-    public static final int INFO_DIRECTIONS_COUNT = 4; // количество направлений в результатах
+    public static final int INFO_DIRECTIONS_COUNT = 3; // количество направлений в результатах
 
     public static final int BUNDLE_KEY_ZERO_INDEX = 0;
     public static final int BUNDLE_KEY_FIRST_INDEX = 1;
@@ -43,6 +43,7 @@ public class AppConstants {
     public static final String BUNDLE_KEY_SKIP_OPTION = "skip";
     public static final String BUNDLE_KEY_REWARD_OPTION = "reward";
     public static final String BUNDLE_KEY_DIRECTIONS_SCORES = "dir_scores";
+    public static final String BUNDLE_KEY_ID = "id";
 
     // question file
     public static final String QUESTION_FILE = "json/question_set.json";
@@ -59,6 +60,8 @@ public class AppConstants {
     public static final String JSON_KEY_DIRECTIONS = "directions";
     public static final String JSON_KEY_ID = "id";
     public static final String JSON_KEY_NAME = "name";
+    public static final String JSON_KEY_DIRS = "icst_dirs";
+    public static final String JSON_KEY_CODES = "code";
 
 
     // pie chart constants

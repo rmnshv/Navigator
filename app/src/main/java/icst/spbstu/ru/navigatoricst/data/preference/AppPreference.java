@@ -31,19 +31,6 @@ public class AppPreference {
         mEditor = mSharedPreferences.edit();
     }
 
-    public void setQuizResult(String category, int score){
-
-        String scoreStr = Integer.toString(score);
-        mEditor.putString(category, scoreStr);
-        mEditor.apply();
-    }
-
-    public void setQuizQuestionsCount(String category, int count){
-
-        String questionsCount = Integer.toString(count);
-        mEditor.putString(category + AppConstants.QUESTIONS_IN_TEST, questionsCount);
-        mEditor.apply();
-    }
 
 
     public String getString(String key) {

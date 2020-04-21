@@ -1,14 +1,11 @@
 package icst.spbstu.ru.navigatoricst.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -30,7 +27,7 @@ import java.util.List;
 import java.util.Objects;
 
 import icst.spbstu.ru.navigatoricst.R;
-import icst.spbstu.ru.navigatoricst.activity.models.TestModel;
+import icst.spbstu.ru.navigatoricst.models.TestModel;
 import icst.spbstu.ru.navigatoricst.adapters.TestingAdapter;
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
 import icst.spbstu.ru.navigatoricst.listeners.ListItemClickListener;

@@ -50,4 +50,14 @@ public class ActivityUtilities {
         }
     }
 
+    public void invokeDetailedResultActivity(Activity activity, Class<?> tClass, int id,
+                                        boolean shouldFinish) {
+        Intent intent = new Intent(activity, tClass);
+        intent.putExtra(AppConstants.BUNDLE_KEY_ID, id);
+        activity.startActivity(intent);
+        if (shouldFinish) {
+            activity.finish();
+        }
+    }
+
 }

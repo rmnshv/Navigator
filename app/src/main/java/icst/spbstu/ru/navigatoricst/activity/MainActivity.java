@@ -3,14 +3,19 @@ package icst.spbstu.ru.navigatoricst.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -21,7 +26,12 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
+import java.util.ArrayList;
+
 import icst.spbstu.ru.navigatoricst.R;
+import icst.spbstu.ru.navigatoricst.constants.AppConstants;
+import icst.spbstu.ru.navigatoricst.data.sqlite.NotificationDbController;
+import icst.spbstu.ru.navigatoricst.models.NotificationModel;
 import icst.spbstu.ru.navigatoricst.utilities.ActivityUtilities;
 import icst.spbstu.ru.navigatoricst.utilities.AppUtilities;
 
@@ -34,7 +44,7 @@ public class MainActivity extends BaseActivity {
     private Drawer drawer = null;
 
     private Button btnStart;
-
+    private RelativeLayout mNotificationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +57,7 @@ public class MainActivity extends BaseActivity {
         activity = MainActivity.this;
         context = activity.getApplicationContext();
 
+        mNotificationView = (RelativeLayout)findViewById(R.id.notificationView);
 
         header = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -144,15 +155,64 @@ public class MainActivity extends BaseActivity {
                 .build();
 
         btnStart = (Button)findViewById(R.id.btnMainStart);
+        initListeners();
+    }
+
+    private void initListeners() {
+
+        mNotificationView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityUtilities.getInstance().invokeNewActivity(activity, NotificationListActivity.class, false);
+            }
+        });
+
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ActivityUtilities.getInstance().invokeNewActivity(activity, PromptActivity.class, true);
             }
         });
+    }
+
+    // received new broadcast
+    private BroadcastReceiver newNotificationReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            initNotification();
+        }
+    };
+
+    private void initNotification() {
+        NotificationDbController notificationDbController = new NotificationDbController(context);
+        TextView notificationCount = (TextView) findViewById(R.id.notificationCount);
+        notificationCount.setVisibility(View.INVISIBLE);
+
+        ArrayList<NotificationModel> notiArrayList = notificationDbController.getUnreadData();
+
+        if (notiArrayList != null && !notiArrayList.isEmpty()) {
+            int totalUnread = notiArrayList.size();
+            if (totalUnread > 0) {
+                notificationCount.setVisibility(View.VISIBLE);
+                notificationCount.setText(String.valueOf(totalUnread));
+            } else {
+                notificationCount.setVisibility(View.INVISIBLE);
+            }
+        }
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //register broadcast receiver
+        IntentFilter intentFilter = new IntentFilter(AppConstants.NEW_NOTI);
+        LocalBroadcastManager.getInstance(this).registerReceiver(newNotificationReceiver, intentFilter);
+
+        initNotification();
+
+    }
 
     @Override
     public void onBackPressed() {

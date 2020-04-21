@@ -63,7 +63,6 @@ public class BaseActivity extends AppCompatActivity {
 
         if (noDataView != null){
             noDataView.setVisibility(View.GONE);
-
         }
     }
 

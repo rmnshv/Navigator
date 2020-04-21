@@ -1,4 +1,4 @@
-package icst.spbstu.ru.navigatoricst.activity.models;
+package icst.spbstu.ru.navigatoricst.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

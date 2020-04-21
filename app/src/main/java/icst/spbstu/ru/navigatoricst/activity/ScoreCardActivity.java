@@ -5,9 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Pair;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +21,6 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,15 +30,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import icst.spbstu.ru.navigatoricst.R;
-import icst.spbstu.ru.navigatoricst.activity.models.TestModel;
 import icst.spbstu.ru.navigatoricst.adapters.ResultAdapter;
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
+import icst.spbstu.ru.navigatoricst.listeners.ListItemClickListener;
 import icst.spbstu.ru.navigatoricst.utilities.ActivityUtilities;
 
 public class ScoreCardActivity extends BaseActivity implements OnChartValueSelectedListener {
@@ -69,8 +64,19 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
         initView();
         loadData();
         initFunctionality();
-
+        initListener();
         Log.d("myLogs", "ScoreCard: onCreate");
+    }
+
+    private void initListener() {
+        adapter.setItemClickListener(new ListItemClickListener() {
+            @Override
+            public void onItemClick(int position, View view) {
+                int itemId = mIds.get(position);
+                ActivityUtilities.getInstance().invokeDetailedResultActivity(mActivity, DetailedResultActivity.class,
+                        itemId, false);
+            }
+        });
     }
 
     private void initVar() {
@@ -185,6 +191,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
 
         mPieChart.setUsePercentValues(true);
         mPieChart.setDrawHoleEnabled(true);
+        mPieChart.setOnChartValueSelectedListener(this);
         mPieChart.setTransparentCircleRadius(AppConstants.TRANSPARENT_CIRCLE_RADIUS);
         mPieChart.setHoleRadius(AppConstants.TRANSPARENT_CIRCLE_RADIUS);
         mPieChart.animateXY(AppConstants.ANIMATION_VALUE, AppConstants.ANIMATION_VALUE);
@@ -201,7 +208,8 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
 
         for (int i = 0; i < AppConstants.INFO_DIRECTIONS_COUNT; ++i){
             int val = mValues.get(i);
-            entries.add(new PieEntry(val, i));
+            int id = mIds.get(i);
+            entries.add(new PieEntry(val, id));
         }
 
         PieDataSet dataSet = new PieDataSet(entries, AppConstants.EMPTY_STRING);
@@ -218,6 +226,9 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
 
     @Override
     public void onValueSelected(Entry e, Highlight h) {
+        int itemId = (Integer)e.getData();
+        ActivityUtilities.getInstance().invokeDetailedResultActivity(mActivity, DetailedResultActivity.class,
+                itemId, false);
     }
 
     @Override

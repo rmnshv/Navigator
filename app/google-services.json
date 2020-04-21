@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "525843547983",
+    "firebase_url": "https://navigatorapp-4a310.firebaseio.com",
+    "project_id": "navigatorapp-4a310",
+    "storage_bucket": "navigatorapp-4a310.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525843547983:android:5308212144c39254ede73a",
+        "android_client_info": {
+          "package_name": "icst.spbstu.ru.navigatoricst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525843547983-8v99c1qfqvrongbj4qg53297ca3qkjlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWIZhxxOSTTPD4spkkiY0RoyUlZ2K-Zs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525843547983-8v99c1qfqvrongbj4qg53297ca3qkjlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

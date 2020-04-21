@@ -67,6 +67,7 @@
                     android:textColor="#FFF"
                     android:textSize="9sp"
                     android:textStyle="bold"
+                    android:visibility="gone"
                     tools:text="5"
                     tools:ignore="SmallSp" />
 
