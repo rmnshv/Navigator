@@ -3,10 +3,12 @@ package icst.spbstu.ru.navigatoricst.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +47,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
 
     private RecyclerView rvContent;
     private PieChart mPieChart;
+    private ImageView ivScoreShare;
 
     private ResultAdapter adapter;
 
@@ -69,6 +72,21 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
     }
 
     private void initListener() {
+
+        ivScoreShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap bitmap = mPieChart.getChartBitmap();
+                final String appPackageName = mActivity.getPackageName();
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, mActivity.getString(R.string.share_res_msg) +
+                        " https://play.google.com/store/apps/details?id=" + appPackageName);
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, getResources().getString(R.string.send)));
+            }
+        });
+
         adapter.setItemClickListener(new ListItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
@@ -89,8 +107,8 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
         mValues = new ArrayList<>();
         mDirNames = new ArrayList<String>();
         mResDirNames = new ArrayList<String>();
-        mColors = new int[]{getResources().getColor(R.color.red), getResources().getColor(R.color.light_green),
-                getResources().getColor(R.color.blue), getResources().getColor(R.color.colorPrimary)};
+        mColors = new int[]{getResources().getColor(R.color.diag_1), getResources().getColor(R.color.diag_2),
+                getResources().getColor(R.color.diag_3), getResources().getColor(R.color.diag_4)};
         Intent intent = getIntent();
         if (intent != null){
             mDirectionsScores = intent.getIntegerArrayListExtra(AppConstants.BUNDLE_KEY_DIRECTIONS_SCORES);
@@ -123,6 +141,8 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
 
         rvContent = (RecyclerView)findViewById(R.id.rvContent);
         rvContent.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        ivScoreShare = (ImageView)findViewById(R.id.ivScoreShare);
 
         initToolbar(true);
         setToolbarTitle(getResources().getString(R.string.result));
@@ -219,7 +239,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
 
         PieData data = new PieData(dataSet);
 
-        data.setValueFormatter(new PercentFormatter());
+        data.setValueFormatter(new PercentFormatter(mPieChart));
         mPieChart.setData(data);
         mPieChart.invalidate();
     }

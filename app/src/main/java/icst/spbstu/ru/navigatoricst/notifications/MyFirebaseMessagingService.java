@@ -48,7 +48,5 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private void broadcastNewNotification() {
         Intent intent = new Intent(AppConstants.NEW_NOTI);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-
-
     }
 }

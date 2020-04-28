@@ -19,14 +19,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 import icst.spbstu.ru.navigatoricst.R;
+import icst.spbstu.ru.navigatoricst.data.preference.AppPreference;
 import icst.spbstu.ru.navigatoricst.models.TestModel;
 import icst.spbstu.ru.navigatoricst.adapters.TestingAdapter;
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
@@ -128,9 +133,19 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
             mQuestionPosition++;
             updateQuestionsAndAnswers();
         }  else {
+            AppPreference.getInstance(mContext).setString(AppConstants.LAST_RES, getDirectionsString());
             ActivityUtilities.getInstance().invokeScoreCardActivity(mActivity, ScoreCardActivity.class,
                     mDirectionsScores, true);
         }
+    }
+
+    private String getDirectionsString(){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < mDirectionsScores.size(); ++i){
+            sb.append(mDirectionsScores.get(i));
+            sb.append(' ');
+        }
+        return sb.toString();
     }
 
     public void updateQuestionsAndAnswers() {

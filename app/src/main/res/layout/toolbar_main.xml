@@ -19,21 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp">
 
-            <TextView
-                android:id="@+id/toolbarTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_gravity="start"
-                android:layout_toStartOf="@+id/notificationView"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:padding="0dp"
-                android:text="@string/app_name"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
             <RelativeLayout
                 android:id="@+id/notificationView"
                 android:layout_width="35dp"
@@ -51,8 +36,8 @@
                     android:layout_height="22dp"
                     android:layout_centerInParent="true"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/notification_icon"
-                    android:tint="@android:color/white" />
+                    android:src="@drawable/notif_icon"
+                    android:tint="@color/colorPrimary" />
 
                 <TextView
                     android:id="@+id/notificationCount"

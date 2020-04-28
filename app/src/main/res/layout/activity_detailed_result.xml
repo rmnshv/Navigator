@@ -13,27 +13,66 @@
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/tvDirName"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvAreaName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center_horizontal"
         android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTop" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarTop"
+        tools:text="Big data and Data Science" />
+
+    <ImageView
+        android:id="@+id/ivAreaLogo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="300dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAreaName"
+        tools:srcCompat="@drawable/ic_prompt_3" />
+
+    <TextView
+        android:id="@+id/tvAreaInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center_horizontal"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAreaLogo"
+        tools:text="@string/lorem" />
 
     <TextView
         android:id="@+id/tvResMsg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:gravity="center"
         android:text="@string/res_dir_icst"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDirName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAreaInfo" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -49,10 +88,12 @@
         <ListView
             android:id="@+id/lvResDirs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:overScrollMode="ifContentScrolls">
 
         </ListView>
     </LinearLayout>
 
     <include layout="@layout/view_loader" android:visibility="gone"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

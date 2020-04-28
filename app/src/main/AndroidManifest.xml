@@ -15,19 +15,19 @@
         <activity android:name=".activity.NotificationListActivity"/>
         <activity android:name=".activity.DetailedResultActivity" />
         <activity android:name=".activity.ScoreCardActivity" />
-        <activity android:name=".activity.TestingActivity">
+        <activity android:name=".activity.TestingActivity"/>
+        <activity android:name=".activity.PromptActivity" />
+        <activity android:name=".activity.SupportActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.CustomUrlActivity" />
+        <activity android:name=".activity.BaseActivity" />
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PromptActivity" />
-        <activity android:name=".activity.SupportActivity" />
-        <activity android:name=".activity.AboutActivity" />
-        <activity android:name=".activity.CustomUrlActivity" />
-        <activity android:name=".activity.BaseActivity" />
-        <activity android:name=".activity.SplashActivity" />
         <activity android:name=".activity.MainActivity" />
         <service android:name=".notifications.MyFirebaseMessagingService" android:exported="false">
             <intent-filter>

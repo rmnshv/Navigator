@@ -62,6 +62,7 @@ public class AppConstants {
     public static final String JSON_KEY_NAME = "name";
     public static final String JSON_KEY_DIRS = "icst_dirs";
     public static final String JSON_KEY_CODES = "code";
+    public static final String JSON_KEY_DESCRIPTION = "description";
 
 
     // pie chart constants
@@ -69,4 +70,5 @@ public class AppConstants {
     public static final int ANIMATION_VALUE = 2000;
 
     public static final String COLOR_WHITE = "rectangle_white_normal";
+    public static final String LAST_RES = "last_res";
 }

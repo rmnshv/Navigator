@@ -4,48 +4,56 @@
       "id" : 0,
       "name": "Проектирование, разработка, тестирование и сопровождение сложных программных продуктов",
       "icst_dirs": [0, 1, 2, 4, 5],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 1,
       "name": "Мобильное, распределенное, встраиваемое программное обеспечение",
       "icst_dirs": [2, 4, 8],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 2,
       "name": "Компьютерные науки, математическая кибернетика и системный анализ",
       "icst_dirs": [0, 1, 3, 7],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 3,
       "name": "Искусственный интеллект и машинное обучение",
       "icst_dirs": [0, 2, 4, 5, 8],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 4,
       "name": "Проектирование и разработка цифровых систем и устройств",
       "icst_dirs": [2],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 5,
       "name": "Промышленный интернет вещей, киберфизические системы и управление",
       "icst_dirs": [7, 8],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 6,
       "name": "Инноватика и управление качеством",
       "icst_dirs": [6, 9],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 7,
       "name": "Big Data & Data Science",
       "icst_dirs": [1, 3, 5],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
       "hh_info" : "infoHH"
     }
   ],

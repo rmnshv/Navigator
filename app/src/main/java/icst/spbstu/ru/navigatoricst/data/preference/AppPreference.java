@@ -42,6 +42,11 @@ public class AppPreference {
         mEditor.apply();
     }
 
+    public void setString(String key, String value){
+        mEditor.putString(key, value);
+        mEditor.apply();
+    }
+
     public Boolean getBoolean(String key, boolean defaultValue) {
         return mSharedPreferences.getBoolean(key, defaultValue);
     }

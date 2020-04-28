@@ -1,6 +1,5 @@
 package icst.spbstu.ru.navigatoricst.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -30,6 +29,7 @@ import java.util.ArrayList;
 
 import icst.spbstu.ru.navigatoricst.R;
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
+import icst.spbstu.ru.navigatoricst.data.preference.AppPreference;
 import icst.spbstu.ru.navigatoricst.data.sqlite.NotificationDbController;
 import icst.spbstu.ru.navigatoricst.models.NotificationModel;
 import icst.spbstu.ru.navigatoricst.utilities.ActivityUtilities;
@@ -40,7 +40,8 @@ public class MainActivity extends BaseActivity {
     private Activity activity;
     private Context context;
 
-    private AccountHeader header = null;
+    Toolbar toolbar = null;
+
     private Drawer drawer = null;
 
     private Button btnStart;
@@ -49,17 +50,16 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        initVar();
+        initView();
+        initNavigation(savedInstanceState);
 
-        activity = MainActivity.this;
-        context = activity.getApplicationContext();
+        initListeners();
+    }
 
-        mNotificationView = (RelativeLayout)findViewById(R.id.notificationView);
-
-        header = new AccountHeaderBuilder()
+    private void initNavigation(Bundle savedInstanceState) {
+        AccountHeader header = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withTranslucentStatusBar(true)
                 .withHeaderBackground(R.drawable.header_background)
@@ -127,6 +127,18 @@ public class MainActivity extends BaseActivity {
                                         AboutActivity.class, false);
 
                             } else if (drawerItem.getIdentifier() == 20){
+                                String res = AppPreference.getInstance(context).getString(AppConstants.LAST_RES);
+                                if (res == null){
+                                    AppUtilities.showToast(context, getResources().getString(R.string.no_last_res));
+                                } else{
+                                    ArrayList<Integer> mDirectionsScores = new ArrayList<>();
+                                    for (String part : res.split("\\s")){
+                                        mDirectionsScores.add(Integer.parseInt(part));
+                                    }
+
+                                    ActivityUtilities.getInstance().invokeScoreCardActivity(activity, ScoreCardActivity.class,
+                                            mDirectionsScores, true);
+                                }
 
                             } else if (drawerItem.getIdentifier() == 21){
                                 ActivityUtilities.getInstance().invokeCustomUrlActivity(activity,
@@ -147,15 +159,26 @@ public class MainActivity extends BaseActivity {
                                 finish();
                             }
                         }
-
                         return false;
                     }
                 })
                 .withSavedInstance(savedInstanceState)
                 .build();
+    }
+
+    private void initVar() {
+        activity = MainActivity.this;
+        context = activity.getApplicationContext();
+    }
+
+    private void initView() {
+        setContentView(R.layout.activity_main_1);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         btnStart = (Button)findViewById(R.id.btnMainStart);
-        initListeners();
+        mNotificationView = (RelativeLayout)findViewById(R.id.notificationView);
     }
 
     private void initListeners() {

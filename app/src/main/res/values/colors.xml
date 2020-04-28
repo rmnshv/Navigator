@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#02A771</color>
-    <color name="colorPrimaryDark">#2AAD77</color>
-    <color name="colorAccent">#6BC899</color>
+    <color name="colorPrimary">#419b5f</color>
+    <color name="colorPrimaryDark">#347c4c</color>
+    <color name="colorAccent">#275d39</color>
 
+    <color name="bgColor">#FAFAFA</color>
 
     <color name="colorPrimary21">#c4c6c7</color>
     <color name="colorAccent21">#f26144</color>
@@ -29,6 +30,8 @@
     <color name="dark_blue">#1A237E</color>
     <color name="light_green">#69F0AE</color>
     <color name="light_gray">#E0E0E0</color>
+    <color name="pretty_gray">#828282</color>
+    <color name="lighter_gray">#F0F0F0</color>
 
     <color name="default_background">#EEEEEE</color>
 
@@ -41,5 +44,14 @@
 
     <color name="title_color">#818181</color>
     <color name="toolbar_boarder">#e5e6ea</color>
+
+
+    <!--  diagram colors  -->
+    <color name="diag_1">#419b5f</color>
+    <color name="diag_2">#347c4c</color>
+    <color name="diag_3">#275d39</color>
+    <color name="diag_4">#1a3e26</color>
+
+
 
 </resources>

@@ -1,15 +1,15 @@
 package icst.spbstu.ru.navigatoricst.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +19,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +34,13 @@ public class DetailedResultActivity extends BaseActivity {
     private Context mContext;
 
     private ListView lvResDirs;
-    private TextView tvDirName;
+    private TextView tvAreaName;
+    private TextView tvAreaInfo;
+    private ImageView ivAreaLogo;
 
-    private String mDirName;
-
+    private String mAreaName;
+    private String mAreaDescription;
+    
     private List<String> mICSTDirNames;
     private List<String> mICSTDirCodes;
 
@@ -74,8 +78,10 @@ public class DetailedResultActivity extends BaseActivity {
     private void initView() {
         setContentView(R.layout.activity_detailed_result);
 
-        tvDirName = (TextView) findViewById(R.id.tvDirName);
+        tvAreaName = (TextView) findViewById(R.id.tvAreaName);
+        tvAreaInfo = (TextView) findViewById(R.id.tvAreaInfo);
         lvResDirs = (ListView) findViewById(R.id.lvResDirs);
+        ivAreaLogo = (ImageView) findViewById(R.id.ivAreaLogo);
 
         initToolbar(true);
         setToolbarTitle(getResources().getString(R.string.result));
@@ -116,7 +122,8 @@ public class DetailedResultActivity extends BaseActivity {
             JSONArray jsonArrayDirs = jsonObjMain.getJSONArray(AppConstants.JSON_KEY_DIRECTIONS);
 
             JSONObject jsonCurArea = jsonArrayAreas.getJSONObject(currentId);
-            mDirName = jsonCurArea.getString(AppConstants.JSON_KEY_NAME);
+            mAreaName = jsonCurArea.getString(AppConstants.JSON_KEY_NAME);
+            mAreaDescription = jsonCurArea.getString(AppConstants.JSON_KEY_DESCRIPTION);
             JSONArray jsonICSTdirsIds = jsonCurArea.getJSONArray(AppConstants.JSON_KEY_DIRS);
             for (int i = 0; i < jsonICSTdirsIds.length(); ++i){
                 mICSTDirIds.add(jsonICSTdirsIds.getInt(i));
@@ -136,12 +143,37 @@ public class DetailedResultActivity extends BaseActivity {
 
     private void initFunctionality() {
 
-        tvDirName.setText(mDirName);
+        tvAreaName.setText(mAreaName);
+        tvAreaInfo.setText(mAreaDescription);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,
                 android.R.layout.simple_list_item_1, mICSTDirNames);
 
         lvResDirs.setAdapter(adapter);
 
+        setAreaLogo();
+    }
+
+    private void setAreaLogo() {
+        String filename = getResources().getString(R.string.assets_area_icon, currentId);
+        InputStream inputStream = null;
+        try{
+            inputStream = mContext.getAssets().open(filename);
+            Drawable d = Drawable.createFromStream(inputStream, null);
+            ivAreaLogo.setImageDrawable(d);
+            ivAreaLogo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                if(inputStream != null)
+                    inputStream.close();
+            }
+            catch (IOException ex){
+                ex.printStackTrace();
+            }
+        }
     }
 
     private void initListeners() {

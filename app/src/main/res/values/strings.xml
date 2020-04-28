@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">abilITy</string>
+    <string name="app_name">ITest</string>
     <string name="icst_site">Сайт ИКНТ</string>
     <string name="edu_title">Направления подготовки</string>
     <string name="testing">Тестирование</string>
@@ -19,6 +19,7 @@
     <string name="no_data">Нет данных</string>
     <string name="tap_again">Для выхода нажмите "назад" еще раз</string>
     <string name="share_msg">Узнай, кто ты в мире IT! </string>
+    <string name="share_res_msg"> Я узнал кем являюсь в мире IT! Попробуй и ты!</string>
     <string name="hello">Здравствуйте!</string>
     <string name="hi">Привет!</string>
     <string name="send">Отправить</string>
@@ -33,6 +34,8 @@
     <string name="settings">Настройки</string>
     <string name="notifications">Уведомления</string>
     <string name="delete_all_notification">Удалить все уведомления?</string>
+    <string name="no_last_res">Результаты отсутствуют</string>
+    <string name="sc_msg">Это три наиболее подходящие для тебя IT-области. Нажми на любую из них, чтобы узнать подробности.</string>
 
     <!-- prompt messages -->
     <string name="prompt_msg_1">Тест займет менее 10 минут</string>
@@ -40,18 +43,19 @@
     <string name="prompt_msg_3">Сходи в домик, а мы пока придумаем текст</string>
 
     <!-- main message -->
-    <string name="main_msg">Это приложение поможет тебе разобраться в огромном разнообразии IT сфер и подобрать для себя
-        подходящее направление в ИКНТ СПбПУ.</string>
+    <string name="main_msg">Приветствуем тебя в ITest!\n Мы поможем тебе разобраться в огромном мире IT направлений, а также
+    предложим несколько подходящих именно тебе!</string>
 
     <!-- links -->
     <string name="icst_edu_url">https://icst.spbstu.ru/edu/</string>
-
+    <string name="assets_area_icon">icons/ic_area%d.png</string>
     <string name="icst_url">https://icst.spbstu.ru/</string>
     <string name="support_mail_address">tonnyjohnson41@gmail.com</string>
 
     <!-- about_app -->
-    <string name="about_info">Это приложение было разработано студентами 2 курса СПбПУ ИКНТ в 2020 году.
-    Его цель - облегчить процесс выбора направления в СПбПУ ИКНТ. Надеемся, что нам удалось достичь эту цель.</string>
+    <string name="about_info">Это приложение было разработано студентами 2 курса Политехнического Университета в 2020 году.\n
+    Его цель - облегчить процесс выбора направления в Институте Компьютерных Наук и Технологий СПбПУ.
+        Надеемся, что нам удалось достичь эту цель. \nПо всем интересующим вопросам можно обращаться в тех. поддержку.</string>
 
     <!-- support_info -->
     <string name="support_info">Мы будем рады услышать любые предложения по улучшению или получить
@@ -65,7 +69,8 @@
     <string name="cdPrompt3">Prompt3</string>
 
     <string name="default_text">Средний</string>
-
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem,
+        nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.</string>
 
     <!-- string-array for Support Types -->
     <string-array name="support_types">
@@ -82,6 +87,7 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="cancel_prompt">Завершить тест?</string>
+    <string name="share_res">Поделиться результатом</string>
 
 
 </resources>

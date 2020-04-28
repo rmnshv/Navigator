@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"/>
 
     <ImageView
-        android:id="@+id/imgAbout"
+        android:id="@+id/ivAboutLogoITest"
         android:layout_width="283dp"
         android:layout_height="128dp"
         android:layout_marginTop="@dimen/materialize_toolbar"
@@ -20,29 +20,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_icst" />
-
-    <TextView
-        android:id="@+id/tvAboutTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/app_name"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgAbout" />
+        app:layout_constraintTop_toBottomOf="@id/toolbarTop"
+        app:srcCompat="@drawable/logo_itest" />
 
     <TextView
         android:id="@+id/tvAboutInfo"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="128dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center_horizontal"
         android:text="@string/about_info"
-        android:textSize="18sp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAboutTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/ivAboutLogoITest" />
+
+    <ImageView
+        android:id="@+id/ivAboutLogoIcst"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:onClick="clickView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutInfo"
+        app:srcCompat="@drawable/logo_icst" />
 </androidx.constraintlayout.widget.ConstraintLayout>
