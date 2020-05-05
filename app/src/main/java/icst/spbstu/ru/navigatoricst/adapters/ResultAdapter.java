@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.Dimension;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -22,13 +23,15 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
     private Activity mActivity;
 
     private ArrayList<String> mItemList;
+    private ArrayList<Double> mItemPercent;
     private final int[] mColors;
     private ListItemClickListener mItemClickListener;
 
-    public ResultAdapter(Context mContext, Activity mActivity, ArrayList<String> mItemList, int[] mColors) {
+    public ResultAdapter(Context mContext, Activity mActivity, ArrayList<String> mItemList, ArrayList<Double> mItemPercent, int[] mColors) {
         this.mContext = mContext;
         this.mActivity = mActivity;
         this.mItemList = mItemList;
+        this.mItemPercent = mItemPercent;
         this.mColors = mColors;
     }
 
@@ -46,6 +49,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView tvDirName;
+        private TextView tvDirPercent;
         ListItemClickListener itemClickListener;
 
         public ViewHolder(View itemView, int viewType, ListItemClickListener itemClickListener) {
@@ -53,7 +57,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
 
             this.itemClickListener = itemClickListener;
             tvDirName = (TextView)itemView.findViewById(R.id.tvAreaName);
-
+            tvDirPercent = (TextView)itemView.findViewById(R.id.tvAreaPercent);
             itemView.setOnClickListener(this);
 
         }
@@ -75,8 +79,17 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder mainHolder, int position) {
         final String dirName = mItemList.get(position);
-        // setting data over views
+        final double dirPercent = mItemPercent.get(position);
+
         mainHolder.tvDirName.setText(dirName);
+        mainHolder.tvDirPercent.setText(mContext.getResources().getString(R.string.res_percent) + " "
+                + String.format("%.1f", dirPercent) + "%");
+
         mainHolder.tvDirName.setTextColor(mColors[position]);
+        mainHolder.tvDirPercent.setTextColor(mColors[position]);
+
+        mainHolder.tvDirName.setTextSize(Dimension.SP, 18 - 2 * position);
+        mainHolder.tvDirPercent.setTextSize(Dimension.SP, 18 - 2 * position);
+
     }
 }

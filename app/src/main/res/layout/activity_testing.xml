@@ -30,7 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/header_background" />
+            app:srcCompat="@drawable/badge_rect_1" />
 
         <ImageView
             android:id="@+id/ivRect"
@@ -49,9 +49,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:fontFamily="sans-serif-light"
             android:gravity="center"
             android:lineSpacingMultiplier="1.1"
-            android:textSize="17sp"
+            android:padding="15dp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/ivRect"
             app:layout_constraintEnd_toEndOf="@+id/ivRect"
             app:layout_constraintStart_toStartOf="@+id/ivRect"
@@ -63,9 +65,8 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingStart="15dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="15dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:paddingBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/tvQuestionTitle"
         app:layout_constraintEnd_toEndOf="parent"

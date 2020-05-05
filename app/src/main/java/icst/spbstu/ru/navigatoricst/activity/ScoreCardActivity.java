@@ -31,6 +31,8 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +57,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
     private ArrayList<Integer> mIds = null;
     private ArrayList<Integer> mValues = null;
     private ArrayList<String> mDirNames = null;
+    private ArrayList<Double> mPercents = null;
     private ArrayList<String> mResDirNames = null;
 
     private int[] mColors;
@@ -105,6 +108,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
 
         mIds = new ArrayList<>();
         mValues = new ArrayList<>();
+        mPercents = new ArrayList<>();
         mDirNames = new ArrayList<String>();
         mResDirNames = new ArrayList<String>();
         mColors = new int[]{getResources().getColor(R.color.diag_1), getResources().getColor(R.color.diag_2),
@@ -133,6 +137,11 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
             mIds.add(id);
             mValues.add(val);
             used[id] = true;
+        }
+        double sum = 0;
+        for (int i = 0; i < mValues.size(); ++i) sum += mValues.get(i);
+        for (int i = 0; i < mValues.size(); ++i){
+            mPercents.add((double)mValues.get(i) * 100. / sum);
         }
     }
 
@@ -201,7 +210,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
     private void initFunctionality() {
         showPieChart();
 
-        adapter = new ResultAdapter(mContext, mActivity, mResDirNames, mColors);
+        adapter = new ResultAdapter(mContext, mActivity, mResDirNames, mPercents, mColors);
         rvContent.setAdapter(adapter);
     }
 

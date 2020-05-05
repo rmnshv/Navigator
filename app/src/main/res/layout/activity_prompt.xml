@@ -27,29 +27,31 @@
         <LinearLayout
             android:id="@+id/llPrompt1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="150dp">
 
             <TextView
                 android:id="@+id/tvPrompt1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="64dp"
                 android:layout_weight="1"
+                android:background="@drawable/badge_rect_left"
                 android:gravity="center"
                 android:text="@string/prompt_msg_1"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textColor="@color/nice_green"
+                android:backgroundTint="@color/white"
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/ivPrompt1"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_marginEnd="16dp"
                 android:contentDescription="@string/cdPrompt1"
-                android:tint="@color/colorPrimary"
-                app:srcCompat="@drawable/ic_prompt_2" />
+                android:background="@drawable/badge_rect_right"
+                android:backgroundTint="@color/nice_green"
+                app:srcCompat="@drawable/prompt_icon_1" />
 
 
         </LinearLayout>
@@ -57,67 +59,63 @@
         <LinearLayout
             android:id="@+id/llPrompt2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp">
+            android:layout_height="150dp"
+            android:layout_marginTop="32dp">
 
             <ImageView
                 android:id="@+id/ivPrompt2"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="8dp"
                 android:contentDescription="@string/cdPrompt2"
-                android:tint="@color/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_prompt_1" />
+                android:background="@drawable/badge_rect_left"
+                android:backgroundTint="@color/nice_green"
+                app:srcCompat="@drawable/prompt_icon_2" />
 
             <TextView
                 android:id="@+id/tvPrompt2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="64dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/prompt_msg_2"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivPrompt2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="@color/nice_green"
+                android:textSize="20sp"
+                android:background="@drawable/badge_rect_right"
+                android:backgroundTint="@color/white"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llPrompt3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp">
+            android:layout_height="150dp"
+            android:layout_marginTop="32dp">
 
             <TextView
                 android:id="@+id/tvPrompt3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="8dp"
-
+                android:layout_marginStart="64dp"
                 android:layout_weight="1"
+                android:background="@drawable/badge_rect_left"
                 android:gravity="center"
+                android:backgroundTint="@color/white"
                 android:text="@string/prompt_msg_3"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textColor="@color/nice_green"
+                android:textSize="20sp"/>
 
             <ImageView
                 android:id="@+id/ivPrompt3"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_marginEnd="16dp"
+                android:background="@drawable/badge_rect_right"
+                android:backgroundTint="@color/nice_green"
                 android:contentDescription="@string/cdPrompt3"
-                android:tint="@color/colorPrimary"
-                app:srcCompat="@drawable/ic_prompt_3" />
+                app:srcCompat="@drawable/prompt_icon_3" />
 
 
         </LinearLayout>

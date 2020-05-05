@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import icst.spbstu.ru.navigatoricst.R;
+import icst.spbstu.ru.navigatoricst.adapters.DirectionsAdapter;
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
+import icst.spbstu.ru.navigatoricst.listeners.ListItemClickListener;
 import icst.spbstu.ru.navigatoricst.utilities.ActivityUtilities;
 
 public class DetailedResultActivity extends BaseActivity {
@@ -33,16 +38,18 @@ public class DetailedResultActivity extends BaseActivity {
     private Activity mActivity;
     private Context mContext;
 
-    private ListView lvResDirs;
+    private RecyclerView rvDirContent;
     private TextView tvAreaName;
     private TextView tvAreaInfo;
     private ImageView ivAreaLogo;
 
+    private DirectionsAdapter adapter;
+
     private String mAreaName;
     private String mAreaDescription;
     
-    private List<String> mICSTDirNames;
-    private List<String> mICSTDirCodes;
+    private ArrayList<String> mICSTDirNames;
+    private ArrayList<String> mICSTDirCodes;
 
     private List<Integer> mICSTDirIds;
 
@@ -80,7 +87,8 @@ public class DetailedResultActivity extends BaseActivity {
 
         tvAreaName = (TextView) findViewById(R.id.tvAreaName);
         tvAreaInfo = (TextView) findViewById(R.id.tvAreaInfo);
-        lvResDirs = (ListView) findViewById(R.id.lvResDirs);
+        rvDirContent = (RecyclerView) findViewById(R.id.rvDirContent);
+        rvDirContent.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         ivAreaLogo = (ImageView) findViewById(R.id.ivAreaLogo);
 
         initToolbar(true);
@@ -145,10 +153,9 @@ public class DetailedResultActivity extends BaseActivity {
 
         tvAreaName.setText(mAreaName);
         tvAreaInfo.setText(mAreaDescription);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,
-                android.R.layout.simple_list_item_1, mICSTDirNames);
 
-        lvResDirs.setAdapter(adapter);
+        adapter = new DirectionsAdapter(mContext, mActivity, mICSTDirNames, mICSTDirCodes);
+        rvDirContent.setAdapter(adapter);
 
         setAreaLogo();
     }
@@ -177,9 +184,9 @@ public class DetailedResultActivity extends BaseActivity {
     }
 
     private void initListeners() {
-        lvResDirs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapter.setItemClickListener(new ListItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(int position, View view) {
                 String url = getString(R.string.icst_edu_url) + mICSTDirCodes.get(position) + "/";
                 ActivityUtilities.getInstance().invokeCustomUrlActivity(mActivity, CustomUrlActivity.class,
                         mICSTDirNames.get(position), url, false);

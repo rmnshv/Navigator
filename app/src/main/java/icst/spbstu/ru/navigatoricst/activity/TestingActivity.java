@@ -222,7 +222,7 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
 
             mQuestionsCount = mItemList.size();
             pbTestingProgress.setMax(mQuestionsCount);
-            Collections.shuffle(mItemList);
+            //Collections.shuffle(mItemList);
 
             hideLoader();
             updateQuestionsAndAnswers();
@@ -255,18 +255,9 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
                     ActivityUtilities.getInstance().invokeNewActivity(mActivity, MainActivity.class, true);
                     break;
                 case AppConstants.BUNDLE_KEY_SKIP_OPTION:
-
-                    //TODO: mIsSkipped = true;
-
-                    //TODO: updateResultSet();
                     setNextQuestion();
                     break;
-                case AppConstants.BUNDLE_KEY_REWARD_OPTION:
-                    //TODO:  mRewardedVideoAd.show();
-                    break;
             }
-        } else if (viewIdText.equals(AppConstants.BUNDLE_KEY_REWARD_OPTION)) {
-            //TODO: invoke ScoreCardActivity
         }
     }
 

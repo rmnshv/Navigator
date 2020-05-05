@@ -200,7 +200,6 @@ public class MainActivity extends BaseActivity {
 
     // received new broadcast
     private BroadcastReceiver newNotificationReceiver = new BroadcastReceiver() {
-
         @Override
         public void onReceive(Context context, Intent intent) {
             initNotification();
@@ -208,6 +207,7 @@ public class MainActivity extends BaseActivity {
     };
 
     private void initNotification() {
+
         NotificationDbController notificationDbController = new NotificationDbController(context);
         TextView notificationCount = (TextView) findViewById(R.id.notificationCount);
         notificationCount.setVisibility(View.INVISIBLE);
