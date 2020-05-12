@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -26,12 +27,14 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import icst.spbstu.ru.navigatoricst.R;
 import icst.spbstu.ru.navigatoricst.constants.AppConstants;
 import icst.spbstu.ru.navigatoricst.data.preference.AppPreference;
 import icst.spbstu.ru.navigatoricst.data.sqlite.NotificationDbController;
 import icst.spbstu.ru.navigatoricst.models.NotificationModel;
+import icst.spbstu.ru.navigatoricst.notifications.MyFirebaseMessagingService;
 import icst.spbstu.ru.navigatoricst.utilities.ActivityUtilities;
 import icst.spbstu.ru.navigatoricst.utilities.AppUtilities;
 
@@ -56,6 +59,9 @@ public class MainActivity extends BaseActivity {
         initNavigation(savedInstanceState);
 
         initListeners();
+
+
+
     }
 
     private void initNavigation(Bundle savedInstanceState) {

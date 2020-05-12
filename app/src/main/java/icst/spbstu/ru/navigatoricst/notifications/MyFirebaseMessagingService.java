@@ -30,6 +30,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
     }
 
+
+
     @Override
     public void onMessageSent(String s) {
         super.onMessageSent(s);
@@ -37,7 +39,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
 
-    private void sendNotification(String title, String messageBody, String url) {
+    public void sendNotification(String title, String messageBody, String url) {
 
         // insert data into database
         NotificationDbController notificationDbController = new NotificationDbController(MyFirebaseMessagingService.this);

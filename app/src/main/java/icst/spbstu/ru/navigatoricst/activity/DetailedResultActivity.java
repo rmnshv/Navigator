@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,6 +43,7 @@ public class DetailedResultActivity extends BaseActivity {
     private TextView tvAreaName;
     private TextView tvAreaInfo;
     private ImageView ivAreaLogo;
+    private ScrollView svDetResCont;
 
     private DirectionsAdapter adapter;
 
@@ -74,7 +76,6 @@ public class DetailedResultActivity extends BaseActivity {
         mICSTDirNames = new ArrayList<>();
         mICSTDirIds = new ArrayList<>();
         mICSTDirCodes = new ArrayList<>();
-
         Intent intent = getIntent();
         if (intent != null){
             currentId = intent.getIntExtra(AppConstants.BUNDLE_KEY_ID, 0);
@@ -88,6 +89,7 @@ public class DetailedResultActivity extends BaseActivity {
         tvAreaName = (TextView) findViewById(R.id.tvAreaName);
         tvAreaInfo = (TextView) findViewById(R.id.tvAreaInfo);
         rvDirContent = (RecyclerView) findViewById(R.id.rvDirContent);
+        svDetResCont = (ScrollView) findViewById(R.id.svDetResContainer);
         rvDirContent.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         ivAreaLogo = (ImageView) findViewById(R.id.ivAreaLogo);
 
@@ -153,11 +155,13 @@ public class DetailedResultActivity extends BaseActivity {
 
         tvAreaName.setText(mAreaName);
         tvAreaInfo.setText(mAreaDescription);
+        setAreaLogo();
+        svDetResCont.scrollTo(0, 0);
 
         adapter = new DirectionsAdapter(mContext, mActivity, mICSTDirNames, mICSTDirCodes);
         rvDirContent.setAdapter(adapter);
 
-        setAreaLogo();
+
     }
 
     private void setAreaLogo() {
@@ -167,7 +171,7 @@ public class DetailedResultActivity extends BaseActivity {
             inputStream = mContext.getAssets().open(filename);
             Drawable d = Drawable.createFromStream(inputStream, null);
             ivAreaLogo.setImageDrawable(d);
-            ivAreaLogo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            ivAreaLogo.setScaleType(ImageView.ScaleType.CENTER);
         }
         catch (IOException e){
             e.printStackTrace();

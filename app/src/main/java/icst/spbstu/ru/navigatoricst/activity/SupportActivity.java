@@ -52,7 +52,7 @@ public class SupportActivity extends BaseActivity {
 
     public void onClick(View view) {
 
-        String subject = "[Навигатор ИКНТ] " + spinnerSupport.getSelectedItem().toString();
+        String subject = "[" + getResources().getString(R.string.app_name) + "] " + spinnerSupport.getSelectedItem().toString();
         String text = etSupport.getText().toString();
         String to = getString(R.string.support_mail_address);
 
@@ -67,5 +67,11 @@ public class SupportActivity extends BaseActivity {
             AppUtilities.showToast(context, getString(R.string.no_email_client));
         }
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        AppUtilities.showToast(context, getResources().getString(R.string.sent));
     }
 }

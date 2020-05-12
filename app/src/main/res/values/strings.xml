@@ -38,6 +38,7 @@
     <string name="no_last_res">Результаты отсутствуют</string>
     <string name="sc_msg">Это три наиболее подходящие для тебя IT-области. Нажми на любую из них, чтобы узнать подробности.</string>
     <string name="dir_msg">Направления в Политехе, готовящие специалистов этой области</string>
+    <string name="sent">Сообщение отправлено!</string>
     <!-- prompt messages -->
     <string name="prompt_msg_1">Тест займет менее 10 минут</string>
     <string name="prompt_msg_2">Если ты не в настроении, лучше ненадолго отложи тест</string>
@@ -51,7 +52,8 @@
     <string name="icst_edu_url">https://icst.spbstu.ru/edu/</string>
     <string name="assets_area_icon">icons/ic_area%d.png</string>
     <string name="icst_url">https://icst.spbstu.ru/</string>
-    <string name="support_mail_address">test@test.com</string>
+    <!--    TODO: добавить адрес тех. поддержки-->
+    <string name="support_mail_address">vefimi3935@oriwijn.com</string>
 
     <!-- about_app -->
     <string name="about_info">Это приложение было разработано студентами 2 курса Политехнического Университета в 2020 году.\n

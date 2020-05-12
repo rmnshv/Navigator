@@ -4,56 +4,56 @@
       "id" : 0,
       "name": "Проектирование, разработка, тестирование и сопровождение сложных программных продуктов",
       "icst_dirs": [0, 1, 2, 4, 5],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
+      "description": "Подготовка специалистов, которые смогут самостоятельно руководить сложными проектами, связанными с информационными технологиями, а также непосредственно принимать участие в разработке программного обеспечения. Помимо этого, прошедшие обучение в данной отрасли могут выполнять роль тестировщиков или обслуживать уже готовые программы и сервисы.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 1,
       "name": "Мобильное, распределенное, встраиваемое программное обеспечение",
       "icst_dirs": [2, 4, 8],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
+      "description": "Специалисты данной области работают не с пользовательскими программами, с которыми мы взаимодействуем, пользуясь той или иной техникой, а с так называемыми «прошивками». То есть, разработка ведётся на более низком уровне. Это может быть доработка операционной системы, например, Android или iOS.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 2,
       "name": "Компьютерные науки, математическая кибернетика и системный анализ",
       "icst_dirs": [0, 1, 3, 7],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
+      "description": "То, что нужно, если вы интересуетесь математикой, информационными технологиями и всем, что с этим связано. Данная область подготовки также подходит тем, кого привлекают занятия научной деятельностью.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 3,
       "name": "Искусственный интеллект и машинное обучение",
       "icst_dirs": [0, 2, 4, 5, 8],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
+      "description": "Искусственный интеллект – это направление современной науки, которое изучает способы обучения компьютера разумному мышлению как у человека. Специалисты данной области готовятся к разработке алгоритмов, связанных с искусственным интеллектом и машинным обучением.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 4,
       "name": "Проектирование и разработка цифровых систем и устройств",
       "icst_dirs": [2],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
+      "description": "Нас повсюду окружают цифровые устройства, начиная с телефона в твоей руке, заканчивая камерой или чайником. Цифровые системы представляют собой такие системы, которые, например, помогают архитектору смоделировать его будущий проект. Специалисту данной отрасли не составит никакого труда разобраться в любых современных цифровых технологиях и влиться в их разработку на любом уровне.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 5,
       "name": "Промышленный интернет вещей, киберфизические системы и управление",
       "icst_dirs": [7, 8],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
+      "description": "Промышленный Интернет вещей - это концепция, при которой различные промышленные устройства, такие как датчики или другое оборудование, объединены в сеть посредством использования сети Интернет. Данные технологии часто применяются на производствах. Специалисты данной области занимаются разработками в обслуживании или управлении устройствами, которые помогают людям меньше работать своими руками. Пример, который будет понятен каждому: заходя в торговый центр, вы не открываете дверь руками, потому что есть специальное устройство, которое увидит вас заранее, после чего система сама откроет дверь.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 6,
       "name": "Инноватика и управление качеством",
       "icst_dirs": [6, 9],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
+      "description": "Специалисты данной области зачастую очень ценятся в IT-компаниях, потому что способны говорить сразу на двух языках: они могут вести диалог с программистами, а также с людьми, которые очень далеки от этапа разработки того или иного проекта. Более того эти люди в конце обучения умеют не только объяснять программисту, чего хочет заказчик, но и организовывать собственный проект и вести его до конца.",
       "hh_info" : "infoHH"
     },
     {
       "id" : 7,
       "name": "Big Data & Data Science",
       "icst_dirs": [1, 3, 5],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem, nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.",
+      "description": "Огромное количество людей пользуется интернет-сервисами каждый день и оставляет в них свои данные для того, чтобы ими с кем-нибудь поделиться или же вновь воспользоваться. Обрабатывать такое количество информации вручную невозможно, поэтому и существуют специальные методы обработки больших данных, а также способы манипуляций с ними. Именно этим и занимаются специалисты данной области.",
       "hh_info" : "infoHH"
     }
   ],

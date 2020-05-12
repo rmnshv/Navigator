@@ -3,7 +3,7 @@ package icst.spbstu.ru.navigatoricst.constants;
 public class AppConstants {
 
     public static final int SPLASH_DURATION = 1500;
-    public static final int PROMPT_DURATION = 1500;
+    public static final int PROMPT_DURATION = 2500;
 
 
     public static final int DIRECTIONS_COUNT = 8;
@@ -12,8 +12,6 @@ public class AppConstants {
     public static final int BUNDLE_KEY_ZERO_INDEX = 0;
     public static final int BUNDLE_KEY_FIRST_INDEX = 1;
     public static final int BUNDLE_KEY_SECOND_INDEX = 2;
-    public static final int BUNDLE_KEY_MAX_LIFE = 5;
-    public static final int MULTIPLIER_GRADE = 10;
 
 
 
@@ -33,7 +31,6 @@ public class AppConstants {
     public static final String BUNDLE_KEY_DELETE_ALL_NOT = "delete_all_not";
 
     // question constants
-    public static final String BUNDLE_KEY_SCORE = "score";
     public static final String BUNDLE_KEY_YES = "yes";
     public static final String BUNDLE_KEY_NO = "no";
     public static final String BUNDLE_KEY_VIEW_ID = "view_id_tex";
@@ -41,7 +38,6 @@ public class AppConstants {
     public static final String BUNDLE_KEY_EXIT_OPTION = "exit";
     public static final String BUNDLE_KEY_CLOSE_OPTION = "close";
     public static final String BUNDLE_KEY_SKIP_OPTION = "skip";
-    public static final String BUNDLE_KEY_REWARD_OPTION = "reward";
     public static final String BUNDLE_KEY_DIRECTIONS_SCORES = "dir_scores";
     public static final String BUNDLE_KEY_ID = "id";
 

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,6 +51,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
     private RecyclerView rvContent;
     private PieChart mPieChart;
     private ImageView ivScoreShare;
+    private ScrollView svScoreCont;
 
     private ResultAdapter adapter;
 
@@ -79,7 +81,6 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
         ivScoreShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bitmap bitmap = mPieChart.getChartBitmap();
                 final String appPackageName = mActivity.getPackageName();
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
@@ -138,6 +139,13 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
             mValues.add(val);
             used[id] = true;
         }
+        int val = 0;
+        for (int i = 0; i < mDirectionsScores.size(); ++i){
+            if (mDirectionsScores.get(i) > val && !used[i]){
+                val = mDirectionsScores.get(i);
+            }
+        }
+        for (int i = 0; i < mValues.size(); ++i) mValues.set(i, mValues.get(i) - val + 1);
         double sum = 0;
         for (int i = 0; i < mValues.size(); ++i) sum += mValues.get(i);
         for (int i = 0; i < mValues.size(); ++i){
@@ -152,6 +160,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
         rvContent.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         ivScoreShare = (ImageView)findViewById(R.id.ivScoreShare);
+        svScoreCont = (ScrollView)findViewById(R.id.svScoreContainer);
 
         initToolbar(true);
         setToolbarTitle(getResources().getString(R.string.result));
@@ -208,6 +217,7 @@ public class ScoreCardActivity extends BaseActivity implements OnChartValueSelec
     }
 
     private void initFunctionality() {
+        svScoreCont.scrollTo(0, 0);
         showPieChart();
 
         adapter = new ResultAdapter(mContext, mActivity, mResDirNames, mPercents, mColors);
