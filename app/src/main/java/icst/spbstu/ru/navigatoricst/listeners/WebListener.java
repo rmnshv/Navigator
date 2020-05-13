@@ -2,10 +2,10 @@ package icst.spbstu.ru.navigatoricst.listeners;
 
 public interface WebListener {
 
-    public void onStart();
-    public void onLoaded();
-    public void onProgress(int progress);
-    public void onNetworkError();
-    public void onPageTitle(String title);
+    void onStart();
+    void onLoaded();
+    void onProgress(int progress);
+    void onNetworkError();
+    void onPageTitle(String title);
 
 }
