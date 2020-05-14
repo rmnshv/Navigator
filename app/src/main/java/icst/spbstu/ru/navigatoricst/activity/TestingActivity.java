@@ -57,6 +57,8 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
     private int mQuestionPosition = 0;
     private int mQuestionsCount = 0;
 
+    private int mLastClickedPos = -1;
+
     private ArrayList<Integer> mDirectionsScores;
 
     @Override
@@ -114,6 +116,7 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
         mAdapter.setItemClickListener(new ListItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
+                mLastClickedPos = position;
                 pbTestingProgress.incrementProgressBy(1);
                 updateDirectionsScores(mItemList.get(mQuestionPosition).getScores(position));
                 setNextQuestion();
@@ -128,6 +131,12 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
         }
     }
 
+    private void downgradeDirectionsScores(ArrayList<Integer> scores){
+        for (int i = 0; i < AppConstants.DIRECTIONS_COUNT; ++i){
+            mDirectionsScores.set(i, mDirectionsScores.get(i) - scores.get(i));
+        }
+    }
+
     public void setNextQuestion() {
         if (mQuestionPosition < mQuestionsCount - 1) {
             mQuestionPosition++;
@@ -136,6 +145,19 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
             AppPreference.getInstance(mContext).setString(AppConstants.LAST_RES, getDirectionsString());
             ActivityUtilities.getInstance().invokeScoreCardActivity(mActivity, ScoreCardActivity.class,
                     mDirectionsScores, true);
+        }
+    }
+
+    public void setPrevQuestion() {
+        if (mQuestionPosition > 0) {
+            pbTestingProgress.incrementProgressBy(-1);
+            mQuestionPosition--;
+            if (mLastClickedPos != -1){
+                downgradeDirectionsScores(mItemList.get(mQuestionPosition).getScores(mLastClickedPos));
+            }
+            updateQuestionsAndAnswers();
+        }  else {
+            testingActivityClosePrompt();
         }
     }
 
@@ -243,8 +265,8 @@ public class TestingActivity extends BaseActivity implements DialogUtilities.OnC
     }
 
     @Override
-    public void onBackPressed() {
-        testingActivityClosePrompt();
+    public void onBackPressed(){
+        setPrevQuestion();
     }
 
     @Override

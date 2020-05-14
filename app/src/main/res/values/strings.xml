@@ -42,7 +42,7 @@
     <!-- prompt messages -->
     <string name="prompt_msg_1">Тест займет менее 10 минут</string>
     <string name="prompt_msg_2">Если ты не в настроении, лучше ненадолго отложи тест</string>
-    <string name="prompt_msg_3">Тест не гарантирует 100%-го результата</string>
+    <string name="prompt_msg_3">В вопросах один вариант ответа</string>
 
     <!-- main message -->
     <string name="main_msg">Приветствуем тебя в ITest!\n Мы поможем тебе разобраться в огромном мире IT направлений, а также
@@ -72,6 +72,7 @@
     <string name="cdPrompt3">Prompt3</string>
 
     <string name="default_text">Средний</string>
+
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus dignissim sem,
         nec viverra ex pharetra et. Aenean vitae lacinia tortor, id malesuada nisi. Cras vel eros ac risus facilisis.</string>
 
